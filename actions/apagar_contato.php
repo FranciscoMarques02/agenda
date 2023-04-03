@@ -19,10 +19,10 @@ if(isset($_GET['id']) && isset($_SESSION['dados_usuario'])){
     // Verificar se o registro foi removido:
     if($qtd_linhas_apagadas >= 1){
         // Direcionar ao index:
-        header('Location: ../index.php');
-
+        header('Location: ../index.php?msg=3');
     }else{
-        echo "Falha ao remover o registro.";
+        // Redirecionar para index com cod de erro
+        header('Location: ../index.php?err=3');
     }
 }else{
     echo "O ID a ser removido não foi definido 

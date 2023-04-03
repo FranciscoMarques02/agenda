@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Redirecionar:
         header('Location: ../index.php');
     }else{
-        echo 'Usuário ou senha inválidos';
+        header('Location: ../login.php?err=0');
     }
 }
 

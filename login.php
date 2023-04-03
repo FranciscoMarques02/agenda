@@ -58,17 +58,17 @@
                 <form id="formCadastro" action="actions/cadastrar_usuario.php" method="POST">
                     <div class="mb-3">
                         <label for="nomeCad" class="form-label">Nome Completo:</label>
-                        <input type="text" class="form-control" id="nomeCad" aria-describedby="nomeCadHelp" name="nome">
+                        <input type="text" class="form-control" id="nomeCad" aria-describedby="nomeCadHelp" name="nome" required>
                         <div id="nomeCadHelp" class="form-text">Como você deseja ser chamado(a).</div>
                     </div>
                     <div class="mb-3">
                         <label for="emailCad" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                        <input type="email" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email" required>
                         <div id="emailCadHelp" class="form-text">E-mail que será utilizado para acessar o sistema.</div>
                     </div>
                     <div class="mb-3">
                         <label for="senhaCad" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senhaCad" name="senha">
+                        <input type="password" class="form-control" id="senhaCad" name="senha" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary rounded submit px-3" id="btnCadastrar">Cadastrar</button>
@@ -102,8 +102,9 @@
             $("#formLogin").fadeIn();
             $("#titulo").text('Login');
         });
- 
+
     </script>
+    <?php require_once('includes/notificacoes.incl.php'); ?>
 </body>
  
 </html>

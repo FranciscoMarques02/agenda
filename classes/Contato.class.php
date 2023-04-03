@@ -39,7 +39,6 @@ class Contato{
         return $resultado;
     }
 
-
     // Apagar:
     public function Apagar(){
         $banco = Banco::conectar();
@@ -60,7 +59,6 @@ class Contato{
             return -1;
          }
     }
-
 
     // Buscar por ID:
     public function BuscarPorID(){
@@ -86,8 +84,8 @@ class Contato{
             $comando = $banco->prepare($sql);
             $comando->execute(array($this->nome, $this->email, $this->telefone, $this->id));
                 Banco::desconectar();
-                // Se der certo, devolve 1 (tratar erros posteriormente)
-                return 1;
+                // Retornar a qtd de linhas modificadas:
+                return $comando->rowCount();
             
             
     }

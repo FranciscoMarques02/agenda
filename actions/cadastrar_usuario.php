@@ -18,8 +18,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $usr->email = $email;
     $usr->senha = $senha;
 
-    $usr->Cadastrar();
-
+    // Verificar se o email já foi cadastrado:
+    try{
+        $usr->Cadastrar();
+        // Redirecionar à tela de login:
+        header('Location: ../login.php?msg=0');
+    }catch(PDOException $e){
+        header('Location: ../login.php?err=2');
+    }
     
 }
 

@@ -1,6 +1,6 @@
 <?php
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+session_start();
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['dados_usuario'])){
     // Receber informações do formulário:
     $id = $_POST['id'];
     $nome = $_POST['nome'];
@@ -19,13 +19,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $contato->email = $email;
     $contato->telefone = $tel;
     
-    // "Empurrar" as informações ao banco de dados:
-    $contato->Editar();
+    // Obter atd de linhas alteradas pelo UPDATE:
+    $qtd_linhas = $contato->Editar();
+
+    // Exibir msg de sucesso caso = 1 e de erro caso != 1:
+    if($qtd_linhas == 1){
+        header('Location: ../index.php?msg=2');
+    }else{
+        header('Location: ../index.php?err=4');
+    }
     
-    // Redirecionar de volta  à listagem (index.php):
-    header('Location: ../index.php');
+
+    
 }else{
-    echo "<p>Essa página deve ser carregada por POST.</p>";
+    echo "<p>A página não foi carregada por POST, ou você não está logado!</p>";
 }
 
 ?>
