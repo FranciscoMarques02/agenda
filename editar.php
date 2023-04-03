@@ -1,5 +1,12 @@
 <?php
 
+// Verificar se o usuário está logado:
+session_start();
+if(!isset($_SESSION['dados_usuario'])){
+    header('Location: login.php');
+    exit;
+}
+
 // Verificar se existe o id na URL:
 if (isset($_GET['id'])) {
 
@@ -16,7 +23,6 @@ if (isset($_GET['id'])) {
     $resultado = [];
 }
 
-//Tratar erros dps
 ?>
 
 

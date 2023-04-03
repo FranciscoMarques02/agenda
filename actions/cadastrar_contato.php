@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['dados_usuario'])){
     // Receber informações do formulário:
     $nome = $_POST['nome'];
     $email = $_POST['email'];

@@ -2,7 +2,7 @@
 session_start();
 
 // Verificar se a sessão NÃO existe:
-if(!isset($_SESSION['logado'])){
+if(!isset($_SESSION['dados_usuario'])){
     // Devolver para tela de login:
     header('Location: login.php');
 }
@@ -30,7 +30,7 @@ $tabela = $contato->Listar();
 <body class="bg-dark text-white">
     <div class="container">
         <h1>Cadastro de contatos</h1>
-        <p>Olá, <?=$_SESSION['logado'];?></p>
+        <p>Olá, <?=$_SESSION['dados_usuario']['nome'];?></p>
         <form class="form-group" action="actions/cadastrar_contato.php" method="POST">
             <label for="nome">Nome completo:</label>
             <input type="text" id="nome" name="nome" class="form-control" required>

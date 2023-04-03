@@ -1,6 +1,9 @@
 <?php
+// Sempre que for trabalhar com a sessão usar o session_start()
+session_start();
 
-if(isset($_GET['id'])){
+// Verificar se o id está setado na URL e o user está logado:
+if(isset($_GET['id']) && isset($_SESSION['dados_usuario'])){
     // Importar a classe Contato:
     require_once('../classes/Contato.class.php');
 
@@ -22,7 +25,8 @@ if(isset($_GET['id'])){
         echo "Falha ao remover o registro.";
     }
 }else{
-    echo "O ID a ser removido não foi definido!";
+    echo "O ID a ser removido não foi definido 
+    ou você não está logado!";
 }
 
 
