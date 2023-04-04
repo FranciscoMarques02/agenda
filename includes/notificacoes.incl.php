@@ -13,7 +13,7 @@ $err = ['Email e/ou senha incorretos!',
 ?>
 
 <!-- Sweet alerts -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script>
     // Mensagens de sucesso:
     <?php if(isset($_GET['msg'])){ ?>
